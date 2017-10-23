@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
    <!-- Is going to show images -->
-   <arg name="is_image_view"  default="true"/>
+   <arg name="is_image_view"  default="false"/>
 
     <!-- USB Camera -->
     <!-- include file="$(find apriltags_ros)/launch/camera_launch/usb_night_cam_video0.launch" / -->
