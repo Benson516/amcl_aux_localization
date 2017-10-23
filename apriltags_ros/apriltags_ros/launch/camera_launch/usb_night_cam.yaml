@@ -1,0 +1,20 @@
+image_width: 640
+image_height: 480
+camera_name: usb_night_cam
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [569.9470274019599, 0, 337.5912002713027, 0, 567.6889997859644, 245.1034405477127, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.4190844552247334, 0.1779943701949956, -0.007377994187317806, -0.003346277177939038, 0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [485.411376953125, 0, 340.6443392195797, 0, 0, 521.9473266601562, 242.9010537170507, 0, 0, 0, 1, 0]

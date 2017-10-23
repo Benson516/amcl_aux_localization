@@ -1,0 +1,73 @@
+<launch>
+  <!-- Parameters -->
+  <arg name="ns_tag_detection"  default="usb_cam"/>
+
+
+  <!-- Tag detector node -->
+  <node pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector" output="screen" ns="$(arg ns_tag_detection)">
+  <!-- node pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector" output="screen" ns="usb_cam" -->
+  <!-- node pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector" output="screen" ns="camera_crop" -->
+
+    <!-- Select the tag family: 16h5, 25h7, 25h9, 36h9, or 36h11(default) -->
+    <!-- param name="tag_family" type="str" value="16h5" / -->
+    <param name="tag_family" type="str" value="36h11" />
+
+
+    <!-- Enable projected optical measurements for more accurate tag transformations -->
+    <!-- This exists for backwards compatability and should be left true for new setups -->
+    <!-- param name="projected_optics" type="bool" value="true" / -->
+
+
+    <rosparam param="tag_descriptions">[
+      {id: 0, size: 0.0641},
+      {id: 1, size: 0.0641},
+      {id: 2, size: 0.1157},
+      {id: 3, size: 0.1157},
+      {id: 4, size: 0.1155},
+      {id: 5, size: 0.1155},
+      {id: 6, size: 0.0320},
+      {id: 7, size: 0.0320},
+      {id: 8, size: 0.0641},
+      {id: 9, size: 0.0340},
+      {id: 10, size: 0.0340},
+      {id: 11, size: 0.0340},
+      {id: 12, size: 0.0340},
+      {id: 13, size: 0.0340},
+      {id: 14, size: 0.0340},
+      {id: 15, size: 0.0340},
+      {id: 16, size: 0.0340},
+      {id: 17, size: 0.0340},
+      {id: 18, size: 0.0340},
+      {id: 19, size: 0.0340},
+      {id: 20, size: 0.0340},
+      {id: 21, size: 0.0340},
+      {id: 22, size: 0.0340},
+      {id: 23, size: 0.0340},
+      {id: 24, size: 0.0340},
+      {id: 25, size: 0.0340},
+      {id: 26, size: 0.0468},
+      {id: 27, size: 0.0468},
+      {id: 28, size: 0.0340},
+      {id: 29, size: 0.0340},
+      {id: 30, size: 0.0340},
+      {id: 31, size: 0.0340},
+      {id: 32, size: 0.0340},
+      {id: 33, size: 0.0340},
+      {id: 34, size: 0.0340},
+      {id: 35, size: 0.0340},
+      {id: 36, size: 0.0340},
+      {id: 37, size: 0.0340},
+      {id: 38, size: 0.0340},
+      {id: 39, size: 0.0340},
+      {id: 40, size: 0.0340},
+      {id: 41, size: 0.0340},
+      {id: 42, size: 0.0340},
+      {id: 43, size: 0.0340},
+      {id: 44, size: 0.0340},
+      {id: 45, size: 0.0340},
+      {id: 46, size: 0.0340},
+      ]
+    </rosparam>
+    <!-- remap from="image_rect" to="image_raw"/ -->
+  </node>
+</launch>

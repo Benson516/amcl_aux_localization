@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+   <!-- Is going to show images -->
+   <arg name="is_image_view"  default="true"/>
+
+    <!-- USB Camera -->
+    <!-- include file="$(find apriltags_ros)/launch/camera_launch/usb_night_cam_video0.launch" / -->
+    <include file="$(find apriltags_ros)/launch/camera_launch/usb_night_cam_video0_1280_720.launch" />
+
+    <!-- Image processing -->
+    <node pkg="image_proc" type="image_proc" name="image_proc" output="screen" ns="usb_cam">
+        <!-- remap from="image_raw" to="image_crop"/ -->
+    </node>
+
+    <!-- Apriltag detection -->
+    <include file="$(find apriltags_ros)/launch/tag_detection.launch" />
+
+
+    <!-- View images -->
+    <group if="$(arg is_image_view)">
+        <!-- Image view -->
+        <node name="image_view_usb_cam" pkg="image_view" type="image_view" respawn="false" output="screen">
+          <remap from="image" to="/usb_cam/image_raw"/>
+          <param name="autosize" value="false" />
+        </node>
+
+        <node name="image_view_crop" pkg="image_view" type="image_view" respawn="false" output="screen">
+          <remap from="image" to="/usb_cam/tag_detections_image"/>
+          <param name="autosize" value="false" />
+        </node>
+
+    </group>
+</launch>

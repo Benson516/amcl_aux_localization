@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+
+<launch>
+  <node pkg="amcl_aux_localization" type="amcl_aux_localization.py" name="amcl_aux_localization" output="screen">
+    <param name="param_path" value="$(find amcl_aux_localization)/params/params.yaml"/>
+  </node>
+</launch>

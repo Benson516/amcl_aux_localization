@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>    
+
+    <!-- USB camera, image processing, and apriltag detector -->
+    <include file="$(find apriltags_ros)/launch/camera_proc_tag.launch" />
+
+    <!-- amcl_aux_localization -->
+    <include file="$(find amcl_aux_localization)/launch/amcl_aux_localization.launch" />
+    
+
+</launch>

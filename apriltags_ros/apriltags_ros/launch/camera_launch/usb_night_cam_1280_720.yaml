@@ -1,0 +1,20 @@
+image_width: 1280
+image_height: 720
+camera_name: usb_night_cam_1280_720
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [1197.238156526019, 0, 640, 0, 1197.238156526019, 360, 0, 0, 1]
+distortion_model: rational_polynomial
+distortion_coefficients:
+  rows: 1
+  cols: 8
+  data: [0, 0, 0, 0, 0, 0, 0, 0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [1197.238159179688, 0, 640.0000130070111, 0, 0, 1197.238159179688, 359.9999983963244, 0, 0, 0, 1, 0]
