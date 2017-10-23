@@ -53,9 +53,12 @@ class AmclAuxLocalization(object):
         tag_measurement = self.ros_interface.get_measurements_tf_directMethod()
         # amcl_pose = self.ros_interface.get_amcl_pose()
 
+        """
+        # Mark_for_running
         print '-----------------'
         print 'tag:'
         print tag_measurement
+        """
 
         #----------------------------------------#
         # self.time = rospy.get_time()

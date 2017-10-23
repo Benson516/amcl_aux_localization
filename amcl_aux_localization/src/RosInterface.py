@@ -143,7 +143,7 @@ class ROSInterface(object):
         """
         if self.tag_Queue.empty():
             return None
-        print "The size of tag_Queue:", self.tag_Queue.qsize()
+        # print "The size of tag_Queue:", self.tag_Queue.qsize()
         # Else, get one element from queue
         posearray = self.tag_Queue.get()
         num_detections = len(posearray.detections)
@@ -195,7 +195,7 @@ class ROSInterface(object):
         """
         if self.tag_Queue.empty():
             return None
-        print "The size of tag_Queue:", self.tag_Queue.qsize()
+        # print "The size of tag_Queue:", self.tag_Queue.qsize()
         # Else, get one element from queue
         posearray = self.tag_Queue.get()
         num_detections = len(posearray.detections)
@@ -226,7 +226,7 @@ class ROSInterface(object):
                 (trans, quaternion) = self.tf_listener.lookupTransformFull(self.base_frame, now,
                                                                             tagFramName, time_tag_was_found,
                                                                             self.odom_frame)
-                print "--Successfully got the tf of the tag!!--"
+                # print "--Successfully got the tf of the tag!!--"
                 # print "trans =", trans
                 _t_tag_at_bot = np.transpose(np.matrix([trans[0], trans[1], trans[2],1.0]))
                 # print "_t_tag_at_bot =", _t_tag_at_bot

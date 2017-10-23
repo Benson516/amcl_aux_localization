@@ -220,7 +220,7 @@ class KalmanFilter:
         # YOUR CODE HERE
         # for every features, do the update
         num_markers = len(z_t)
-        print "num_markers =",num_markers
+        # print "num_markers =",num_markers
         if num_markers == 0:
             return (self.mu_est, self.Sigma_est)
 
@@ -251,13 +251,13 @@ class KalmanFilter:
                 #
                 num_markers = num_markers - 1 # Don't count this marker
                 #
-                print "=== New num_markers =", num_markers
+                # print "=== New num_markers =", num_markers
                 #
                 if num_markers <= 0:
                     print "=== No any known tag, return..."
                     return (self.mu_est, self.Sigma_est) # No-tag, return
                 else:
-                    print "=== Skip this tag."
+                    # print "=== Skip this tag."
                     continue # Keep the for-loop
             #
             # pi_2 = 2.0*np.pi
@@ -269,8 +269,11 @@ class KalmanFilter:
             # print "x_meas =",x_meas, "y_meas =",y_meas, "theta_meas =",(theta_meas*180.0/np.pi), "deg"
             # x_meas_apriltag_list.append(np.array([[x_meas], [y_meas], [theta_meas]])) # 3 by 1
             x_y_1_meas[2,0] = theta_meas
+            """
+            # Mark_for_running
             print "Tag suggested robot-pose: ", x_y_1_meas
             print "theta_measured =", (theta_meas*180.0/np.pi), "deg"
+            """
             x_meas_apriltag_list.append(x_y_1_meas) # 3 by 1
             # Calculating the (estimated) covariance of the tag
             #---------------------#
@@ -473,9 +476,12 @@ class KalmanFilter:
                 #
                 stamp_amclPose = amcl_pose[2] # test
                 #
+                """
+                # Mark_for_running
                 print "Before--"
                 print "mu_est",self.mu_est
                 print "angle_est =", (self.mu_est[2,0]*180.0/np.pi), "deg"
+                """
             else:
                 # No prediction was done, return
                 return self.mu_est
@@ -486,9 +492,12 @@ class KalmanFilter:
             # Fix the prediction of the amcl_pose
             ros_interface.set_amcl_pose(self.mu_est,self.Sigma_est)
             # ros_interface.set_amcl_pose_timeStampIn(self.mu_est,self.Sigma_est, stamp_amclPose) # test
+            """
+            # Mark_for_running
             print "After--"
             print "mu_est",self.mu_est
             print "angle_est =", (self.mu_est[2,0]*180.0/np.pi), "deg"
+            """
         else:
             # No update was Done, no pose_2D was gotten from amcl
             pass
